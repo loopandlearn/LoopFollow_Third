@@ -15,7 +15,10 @@
 #    for dev → `2.4.1`, then → `2.4.2`
 # - next release (main) will be `2.5.0`
 #
+# Commit Handling:
 # The updated version is then committed and pushed back to the `dev` branch.
+# - The bump commit includes the `[skip ci]` tag in its message
+# - This prevents the workflow from re-triggering itself in a loop
 #
 # Prerequisites:
 # - `LOOP_FOLLOW_MARKETING_VERSION` must exist and be defined using the format:
@@ -38,6 +41,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+            token: ${{ secrets.LOOPFOLLOW_TOKEN_AUTOBUMP }}
 
       - name: Set up Git
         run: |
@@ -82,5 +87,5 @@ jobs:
       - name: Commit and push changes
         run: |
           git add Config.xcconfig
-          git commit -m "CI: Bump dev version to $NEW_VERSION"
+          git commit -m "CI: Bump dev version to $NEW_VERSION [skip ci]"
           git push
