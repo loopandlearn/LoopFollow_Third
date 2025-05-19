@@ -28,7 +28,7 @@ name: zzz [DO NOT RUN] Bump LOOP_FOLLOW_MARKETING_VERSION on dev push
 on:
   push:
     branches:
-      - dev
+      - dev_bump_testing
 
 jobs:
   bump-version:
