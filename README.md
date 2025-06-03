@@ -1,3 +1,5 @@
+Dummy comment to be discarded.
+
 > **Message from the Loop and Learn Team:**
 > * We have taken responsibility for updates to the Loop Follow app
 > * Additional Loop Follow documentation is at [Loop and Learn: Loop Follow](https://www.loopandlearn.org/loop-follow/)
